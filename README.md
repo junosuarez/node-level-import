@@ -1,9 +1,17 @@
 # level-import
 import a json file of key value pairs into a level-db database
 
+see also: [level-export](https://npm.im/level-export)
+
 ## usage
 ```js
 var levelImport = require('level-import')
+var fs = require('fs')
+var level = require('level')
+
+var db = level('./db')
+fs.createReadStream('./export.json')
+  .pipe(levelImport(db))
 ```
 
 
